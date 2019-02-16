@@ -7,6 +7,17 @@ if [ "$SERVER_NAME" == "" ]; then
     SERVER_NAME=$LOCAL_IP
 fi
 
+if [ "$REGISTRY_ETCD_URL" != "" ]; then
+    echo "Will register this generator instance to ETCD REGISTRY at $REGISTRY_ETCD_URL..."
+    etcd-registrar \
+        --loglevel=info \
+        --etcd-url=$REGISTRY_ETCD_URL \
+        --etcd-base=$REGISTRY_ETCD_BASE \
+        --service=$REGISTRY_SERVICE \
+        --name=$(hostname) \
+        --ttl=$REGISTRY_TTL&
+fi
+
 echo "Starting the almighty Metrics Generator Tabajara..."
 metrics-generator-tabajara \
     --server-name=${SERVER_NAME} \

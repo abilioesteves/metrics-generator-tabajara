@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
   generator:
-    image: registry.labbs.com.br/barimetrics/metrics-generator-tabajara
+    image: labbsr0x/metrics-generator-tabajara
     build: .
     environment:
       - COMPONENT_NAME=testserver
