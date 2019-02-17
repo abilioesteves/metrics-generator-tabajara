@@ -8,13 +8,13 @@ if [ "$SERVER_NAME" == "" ]; then
 fi
 
 if [ "$REGISTRY_ETCD_URL" != "" ]; then
-    echo "Will register this generator instance to ETCD REGISTRY at $REGISTRY_ETCD_URL..."
+    echo "Will register this generator instance. --etcd-url=$REGISTRY_ETCD_URL --etcd-base=$REGISTRY_ETCD_BASE --service=$REGISTRY_SERVICE --name=$(hostname):9090 --ttl=$REGISTRY_TTL"
     etcd-registrar \
         --loglevel=info \
         --etcd-url=$REGISTRY_ETCD_URL \
         --etcd-base=$REGISTRY_ETCD_BASE \
         --service=$REGISTRY_SERVICE \
-        --name=$(hostname) \
+        --name=$(hostname):9090 \
         --ttl=$REGISTRY_TTL&
 fi
 
