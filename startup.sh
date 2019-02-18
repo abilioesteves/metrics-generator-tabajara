@@ -14,7 +14,7 @@ if [ "$REGISTRY_ETCD_URL" != "" ]; then
         --etcd-url=$REGISTRY_ETCD_URL \
         --etcd-base=$REGISTRY_ETCD_BASE \
         --service=$REGISTRY_SERVICE \
-        --name=$(hostname):9090 \
+        --name=$(hostname):3000 \
         --ttl=$REGISTRY_TTL&
 fi
 
