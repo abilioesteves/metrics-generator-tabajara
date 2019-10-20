@@ -12,7 +12,7 @@ services:
       - ACCIDENT_TYPE=latency
       - ACCIDENT_RATIO=100
     ports:
-      - 3000:3000
+      - 3003:3000
 
   grafana:
     image: flaviostutz/grafana
